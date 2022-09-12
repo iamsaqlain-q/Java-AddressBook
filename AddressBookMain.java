@@ -6,11 +6,36 @@ public class AddressBookMain {
 	
 	public static void main(String[] args) {
 		
+		Character ch = 'a';
+		Scanner sc = new Scanner(System.in);
+		
 		System.out.println("***** Welcome to Address Book program *****");
 		
-		AddressBookServices create = new AddressBookServiceImpl();
-		create.createContact();
-		create.displayContact();
+		while(!ch.equals('q')) {
+			
+			 System.out.print("\na) Add \nq) Quit \nEnter a character: ");
+		      ch = sc.next().charAt(0);
+		      
+		      switch (ch) {
+		        case 'a':
+		        	AddressBookServices con = new AddressBookServiceImpl();
+		            con.createContact();
+		            System.out.println("Added person's details : ");
+		            con.displayContact();
+		          break;
+
+		        case 'q':
+		          break;
+
+		        default:
+		          System.out.println("Please enter a valid character");
+		          break;
+
+		      }
+		}
+		
+		sc.close();
+		
 	}
 
 }
@@ -47,6 +72,12 @@ class AddressBookServiceImpl implements AddressBookServices{
 		System.out.println("E-mail : ");
 		con.setEmail(sc.nextLine());
 		
+		System.out.println("Zip : ");
+		con.setZip(sc.nextInt());
+		
+		System.out.println("Phone Number : ");
+		con.setPhN(sc.nextInt());
+		
 		
 		
 	}
@@ -60,6 +91,8 @@ class AddressBookServiceImpl implements AddressBookServices{
 		System.out.println("City : " + con.getCity());
 		System.out.println("State : " + con.getState());
 		System.out.println("E-mail : " + con.getEmail());
+		System.out.println("Zip : " + con.getZip());
+		System.out.println("Phone Number : " + con.getPhN());
 		
 	}
 	
