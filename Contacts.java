@@ -53,4 +53,5 @@ public class Contacts {
 		public void setPhN(int phN) {
 			this.phN = phN;
 		}	
+		
 	}
