@@ -2,56 +2,50 @@ package com.addressbook.controller;
 
 public class Contacts {
 	
-		String firstN, lastN, address, city, state, email;
-		int zip, phN;
-		
-		public String getFirstN() {
-			return firstN;
-		}
-		public void setFirstN(String firstN) {
-			this.firstN = firstN;
-		}
-		public String getLastN() {
-			return lastN;
-		}
-		public void setLastN(String lastN) {
-			this.lastN = lastN;
-		}
-		public String getAddress() {
-			return address;
-		}
-		public void setAddress(String address) {
-			this.address = address;
-		}
-		public String getCity() {
-			return city;
-		}
-		public void setCity(String city) {
-			this.city = city;
-		}
-		public String getState() {
-			return state;
-		}
-		public void setState(String state) {
-			this.state = state;
-		}
-		public String getEmail() {
-			return email;
-		}
-		public void setEmail(String email) {
-			this.email = email;
-		}
-		public int getZip() {
-			return zip;
-		}
-		public void setZip(int zip) {
-			this.zip = zip;
-		}
-		public int getPhN() {
-			return phN;
-		}
-		public void setPhN(int phN) {
-			this.phN = phN;
-		}	
-		
+	String firstName;
+	String lastName;
+	Address address;
+	String phoneNumber;
+	String emailID;
+	
+	public String getFirstName() {
+		return firstName;
 	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	
+	public String getEmailID() {
+		return emailID;
+	}
+	public void setEmailID(String emailID) {
+		this.emailID = emailID;
+	}	
+
+	@Override
+	public String toString() {
+		return "\nContact Info : \nFirst Name : " + firstName + "\nLast Name : " + lastName + "\nAddress :\n" + address + "\nPhone Number : "
+				+ phoneNumber + "\nEmail ID : " + emailID;
+	}
+}
