@@ -8,10 +8,35 @@ public class AddressBookMain {
 	public static void main(String[] args) {
 		AddressBookMain entry = new AddressBookMain();
 	
-		System.out.println("Welcome to Address Book Program in Java!");
-		System.out.println("You can create Contacts in the Address Book with first/last names, address, city, state, zip, phone number and email and so on");
+		System.out.println("*****Welcome to Address Book Program*****");	
 	
-		entry.addContact();
+		Character ch = 'a';
+		
+		while(!ch.equals('q')) {
+			
+			 System.out.print("\n a) Add \n b) Edit \n d) Delte \n q) Quit \nEnter a character: ");
+		      ch = sc.next().charAt(0);
+		      
+		      switch (ch) {
+		        case 'a':
+		        		entry.addContact();
+		            	break;
+		            	
+		        case 'd' : entry.deleteContact(null);
+		        break;
+		        
+		        case 'e' : entry.editContact(null);
+		        break;
+
+		        case 'q':
+		        			break;
+
+		        default:
+		          System.out.println("Please enter a valid character");
+		          break;
+
+		      }
+		}
 	}
 	
 	public void addContact() {
@@ -47,6 +72,10 @@ public class AddressBookMain {
 	
 	public void displayContact(Contacts contact) {
 		System.out.println(contact);
+	}
+	
+	public void displayContactD(Contacts contactD) {
+		System.out.println(contactD);
 	}
 	
 	public void editContact(Contacts contact) {
@@ -109,6 +138,63 @@ public class AddressBookMain {
 		else if (continueEdit == 'N' || continueEdit == 'n') {
 			System.out.println("\n\nHere is the updated Address Book.");
 			displayContact(contact);
+		}
+		else {
+			System.out.println("\nInvalid Input.\nPlease try again!");
+		}
+	}
+	
+	public void deleteContact(Contacts contactD) {
+		
+		int ch = 0;
+		while (ch < 1 || ch > 4) {
+			System.out.println("\nWhat would you like to delete?");
+			System.out.println("1. Name");
+			System.out.println("2. Phone Number");
+			System.out.println("3. Email Id");
+			System.out.println("4. Address");
+			System.out.print("\nEnter your choice : ");
+			ch = sc.nextInt();
+			
+			if (!(ch >=1 && ch <= 4))
+				System.out.println("\nInvalid choice!\nPlease try again.\n");
+		}
+		
+		switch (ch) {
+		case 1 :
+			System.out.print("Name deleted!");
+			contactD.setFirstName("deleted");
+			contactD.setLastName("deleted");
+			break;
+			
+		case 2 :
+			System.out.print("Phone number deleted!");
+			contactD.setPhoneNumber("deleted");
+			break;
+			
+		case 3 :
+			System.out.print("Email deleted!");
+			contactD.setEmailID("deleted");
+			break;
+			
+		case 4 :
+			System.out.print("Address deleted!");
+
+			contactD.address.setCity("deleted");
+			contactD.address.setState("deleted");
+			contactD.address.setZip("deleted");
+			break;
+		}
+		System.out.println("\nIs there anything else you'd like to delete?");
+		System.out.print("Enter 'Y' or 'N' : ");
+		char continueEdit = sc.next().charAt(0);
+		if (continueEdit == 'Y' || continueEdit == 'y') {
+			deleteContact(contactD);
+
+		}
+		else if (continueEdit == 'N' || continueEdit == 'n') {
+			System.out.println("\n\nHere is the updated Address Book.");
+			displayContact(contactD);
 		}
 		else {
 			System.out.println("\nInvalid Input.\nPlease try again!");
