@@ -19,8 +19,8 @@ public class AddressBookMain {
 		      
 		      switch (ch) {
 		        case 'a':
-		        		entry.addContact();
-		            	break;
+		        	   entry.addContact();
+		        break;
 		            	
 		        case 'd' : entry.deleteContact(null);
 		        break;
@@ -29,7 +29,7 @@ public class AddressBookMain {
 		        break;
 
 		        case 'q':
-		        			break;
+		        break;
 
 		        default:
 		          System.out.println("Please enter a valid character");
